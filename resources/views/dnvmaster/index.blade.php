@@ -3,3 +3,7 @@
 @section('topBar')
     {!! $topBar !!}
 @endsection
+
+@section('navMenu')
+    {!! $navMenu !!}
+@endsection

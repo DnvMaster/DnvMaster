@@ -26,6 +26,8 @@ class IndexController extends DnvMasterController
         $this->description = 'Веб сайты, адаптивность, LARAVEL, HTML5, CSS, BOOTSTRAP, JAVASCRIPT, MySQL, PHP, IDE, Блог, Сайт-визитка, FRAMEWORKS ...';
         $topBar = view(env('DNVMASTER').'.topBar')->render();
         $this->vars = Arr::add($this->vars,'topBar', $topBar);
+        $navMenu = view(env('DNVMASTER').'.navMenu')->render();
+        $this->vars = Arr::add($this->vars,'navMenu', $navMenu);
         return $this->masterOutput();
     }
 
