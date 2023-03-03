@@ -7,3 +7,11 @@
 @section('navMenu')
     {!! $navMenu !!}
 @endsection
+
+@section('footer')
+    {!! $footer !!}
+@endsection
+
+@section('menuStart')
+    {!! $menuStart !!}
+@endsection

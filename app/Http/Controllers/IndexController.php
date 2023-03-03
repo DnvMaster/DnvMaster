@@ -3,13 +3,12 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use Illuminate\Support\Arr;
 
 class IndexController extends DnvMasterController
 {
     public function __construct()
     {
-        parent::__construct();
+        parent::__construct(new \App\Repositories\MenusRepository(new \App\Menu()));
         $this->bar = 'right';
         $this->template = env('DNVMASTER').'.index';
     }
@@ -24,10 +23,7 @@ class IndexController extends DnvMasterController
         $this->title = 'DnvMaster - Всё о веб разработке';
         $this->keywords = 'Прораммирование и создание адаптивных веб сайтов, визитка, корпоративный блог, интернет-магазин ...';
         $this->description = 'Веб сайты, адаптивность, LARAVEL, HTML5, CSS, BOOTSTRAP, JAVASCRIPT, MySQL, PHP, IDE, Блог, Сайт-визитка, FRAMEWORKS ...';
-        $topBar = view(env('DNVMASTER').'.topBar')->render();
-        $this->vars = Arr::add($this->vars,'topBar', $topBar);
-        $navMenu = view(env('DNVMASTER').'.navMenu')->render();
-        $this->vars = Arr::add($this->vars,'navMenu', $navMenu);
+
         return $this->masterOutput();
     }
 

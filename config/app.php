@@ -171,10 +171,9 @@ return [
          */
         App\Providers\AppServiceProvider::class,
         App\Providers\AuthServiceProvider::class,
-        Lavary\Menu\ServiceProvider::class,
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
-
+        Lavary\Menu\ServiceProvider::class,
     ],
 
     /*
