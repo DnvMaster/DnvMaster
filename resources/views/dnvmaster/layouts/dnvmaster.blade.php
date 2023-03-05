@@ -23,20 +23,13 @@
         </div>
     </header>
     <!-- Header End -->
-
-
     <!-- Main Content Wrapper Start -->
     <main class="main-content-wrapper">
-
-
-
+        @yield('sliders')
     </main>
     <!-- Main Content Wrapper End -->
-
-
     @yield('footer')
-   @yield('menuStart')
-
+    @yield('menuStart')
     <!-- Global Overlay Start -->
     <div class="global-overlay"></div>
     <a class="scroll-to-top" href="javascript:void(0);"><i class="fa fa-angle-up"></i></a>

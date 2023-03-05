@@ -2,13 +2,16 @@
 
 namespace App\Http\Controllers;
 
+use App\Repositories\SlidersRepository;
 use Illuminate\Http\Request;
+use Illuminate\Support\Arr;
 
 class IndexController extends DnvMasterController
 {
-    public function __construct()
+    public function __construct(SlidersRepository $sliders_repository)
     {
         parent::__construct(new \App\Repositories\MenusRepository(new \App\Menu()));
+        $this->sliders_repository = $sliders_repository;
         $this->bar = 'right';
         $this->template = env('DNVMASTER').'.index';
     }
@@ -24,9 +27,18 @@ class IndexController extends DnvMasterController
         $this->keywords = 'Прораммирование и создание адаптивных веб сайтов, визитка, корпоративный блог, интернет-магазин ...';
         $this->description = 'Веб сайты, адаптивность, LARAVEL, HTML5, CSS, BOOTSTRAP, JAVASCRIPT, MySQL, PHP, IDE, Блог, Сайт-визитка, FRAMEWORKS ...';
 
+        $slidersImg = $this->sliderItems();
+        $sliders = view(env('DNVMASTER').'.sliders')->with('sliders',$slidersImg)->render();
+        $this->vars = Arr::add($this->vars,'sliders',$sliders);
+
         return $this->masterOutput();
     }
 
+    public function sliderItems()
+    {
+        $sliders = $this->sliders_repository->get();
+        return $sliders;
+    }
     /**
      * Show the form for creating a new resource.
      *

@@ -13,6 +13,7 @@ class DnvMasterController extends Controller
     protected $description;
     protected $keywords;
     protected $menus_repository;
+    protected $sliders_repository;
     protected $template;
     protected $vars = array();
     public function __construct(MenusRepository $menus_repository)

@@ -8,6 +8,10 @@
     {!! $navMenu !!}
 @endsection
 
+@section('sliders')
+    {!! $sliders !!}
+@endsection
+
 @section('footer')
     {!! $footer !!}
 @endsection
