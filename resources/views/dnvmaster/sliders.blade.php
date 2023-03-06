@@ -6,7 +6,7 @@
                 }'>
         @if(count($sliders) > 0)
             @foreach($sliders as $slider)
-            <div class="single-slide d-flex align-items-center" style="background-image: url({{ asset(env('DNVMASTER')) }}/img/slider/{{ $slider->img }});">
+            <div class="single-slide d-flex align-items-center" style="background-image: url({{ asset(env('DNVMASTER')) }}/img/{{ $slider->img }});">
                 <div class="container">
                     <div class="row no-gutters">
                         <div class="col-lg-6 col-sm-8">

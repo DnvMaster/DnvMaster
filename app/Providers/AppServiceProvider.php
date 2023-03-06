@@ -25,5 +25,10 @@ class AppServiceProvider extends ServiceProvider
     public function boot()
     {
         Schema::defaultStringLength(191);
+        \Blade::directive('set',function ($explode)
+        {
+            list($name,$value) = $explode(',',$explode);
+            return "<?php $name = $value ?>";
+        });
     }
 }

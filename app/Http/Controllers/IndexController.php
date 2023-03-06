@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Repositories\SlidersRepository;
 use Illuminate\Http\Request;
 use Illuminate\Support\Arr;
+use Config;
 
 class IndexController extends DnvMasterController
 {
@@ -37,6 +38,15 @@ class IndexController extends DnvMasterController
     public function sliderItems()
     {
         $sliders = $this->sliders_repository->get();
+        if ($sliders->isEmpty())
+        {
+            return false;
+        }
+        $sliders->transform(function ($item,$key)
+        {
+            $item->img = Config::get('settings.slider_path').'/'.$item->img;
+            return $item;
+        });
         return $sliders;
     }
     /**
