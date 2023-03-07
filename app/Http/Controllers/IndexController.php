@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Repositories\PortfoliosRepository;
 use App\Repositories\SlidersRepository;
 use Illuminate\Http\Request;
 use Illuminate\Support\Arr;
@@ -9,10 +10,11 @@ use Config;
 
 class IndexController extends DnvMasterController
 {
-    public function __construct(SlidersRepository $sliders_repository)
+    public function __construct(SlidersRepository $sliders_repository,PortfoliosRepository $portfolios_repository)
     {
         parent::__construct(new \App\Repositories\MenusRepository(new \App\Menu()));
         $this->sliders_repository = $sliders_repository;
+        $this->portfolios_repository = $portfolios_repository;
         $this->bar = 'right';
         $this->template = env('DNVMASTER').'.index';
     }
@@ -32,6 +34,10 @@ class IndexController extends DnvMasterController
         $sliders = view(env('DNVMASTER').'.sliders')->with('sliders',$slidersImg)->render();
         $this->vars = Arr::add($this->vars,'sliders',$sliders);
 
+        $portfolios = $this->portfoliosItems();
+        $content = view(env('DNVMASTER').'.content')->with('portfolios',$portfolios)->render();
+        $this->vars = Arr::add($this->vars,'content', $content);
+
         return $this->masterOutput();
     }
 
@@ -48,6 +54,12 @@ class IndexController extends DnvMasterController
             return $item;
         });
         return $sliders;
+    }
+
+    protected function portfoliosItems()
+    {
+        $portfolios = $this->portfolios_repository->get('*',Config::get('settings.portfolios_count'));
+        return $portfolios;
     }
     /**
      * Show the form for creating a new resource.

@@ -26,6 +26,7 @@
     <!-- Main Content Wrapper Start -->
     <main class="main-content-wrapper">
         @yield('sliders')
+        @yield('content')
     </main>
     <!-- Main Content Wrapper End -->
     @yield('footer')
