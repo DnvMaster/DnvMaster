@@ -24,6 +24,9 @@ class DnvMasterController extends Controller
         $this->vars = Arr::add($this->vars,'keywords',$this->keywords);
         $this->vars = Arr::add($this->vars,'description',$this->description);
 
+        $top = view('DnvMaster.top')->render();
+        $this->vars = Arr::add($this->vars, 'top',$top);
+
         return view($this->template)->with($this->vars);
     }
 }

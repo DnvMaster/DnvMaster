@@ -1,0 +1,62 @@
+/* Google fonts Montserrat */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,400;0,700;1,100;1,200;1,400;1,500&display=swap');
+
+img {
+    max-width: 100%;
+    height: auto;
+    -webkit-transition-duration: .3s;
+    transition-duration: .3s;
+}
+.ml-15 {
+    margin-left: 15px;
+}
+/* Margin-top */
+.mt-10 {
+    margin-top: 10px;
+}
+.mt-15 {
+    margin-top: 15px;
+}
+.mt-20 {
+    margin-top: 20px;
+}
+.mt-25 {
+    margin-top: 25px;
+}
+.mt-30 {
+    margin-top: 30px;
+}
+/* Margin-bottom */
+.mb-30 {
+    margin-bottom: 30px;
+}
+.inner-pad {
+    padding: 30px;
+}
+.center-holder {
+    text-align: center;
+}
+.left-holder {
+    text-align: left;
+}
+.right-holder {
+    text-align: right;
+}
+/* Clearfix */
+.clearfix:after {
+    visibility: hidden;
+    display: block;
+    font-size: 0;
+    content: " ";
+    clear: both;
+    height: 0;
+}
+.clearfix {
+    display: inline-block;
+}
+* html .clearfix {
+    height: 1%;
+}
+.clearfix {
+    display: block;
+}
