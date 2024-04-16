@@ -20,6 +20,8 @@
         </div>
     </div>
     @yield('top')
+    @yield('navigation')
+    @yield('footer')
 
     <a href="#" class="scroll-to-top"><i class="fa fa-long-arrow-up" aria-hidden="true"></i></a>
 

@@ -27,6 +27,12 @@ class DnvMasterController extends Controller
         $top = view('DnvMaster.top')->render();
         $this->vars = Arr::add($this->vars, 'top',$top);
 
+        $navigation = view('DnvMaster.navigation')->render();
+        $this->vars = Arr::add($this->vars, 'navigation',$navigation);
+
+        $footer = view('DnvMaster.footer')->render();
+        $this->vars = Arr::add($this->vars, 'footer',$footer);
+
         return view($this->template)->with($this->vars);
     }
 }
