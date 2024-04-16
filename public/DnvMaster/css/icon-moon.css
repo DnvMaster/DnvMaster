@@ -1,10 +1,9 @@
 @font-face {
   font-family: 'icomoon';
-  src:  url('fonts/icomoon.eot?ooamjw');
-  src:  url('fonts/icomoon.eot?ooamjw#iefix') format('embedded-opentype'),
-    url('fonts/icomoon.ttf?ooamjw') format('truetype'),
-    url('fonts/icomoon.woff?ooamjw') format('woff'),
-    url('fonts/icomoon.svg?ooamjw#icomoon') format('svg');
+  src:  url('../fonts/icomoon.eot?ooamjw');
+  src:  url('../fonts/icomoon.eot?ooamjw#iefix') format('embedded-opentype'),
+    url('../fonts/icomoon.ttf?ooamjw') format('truetype'),
+    url('../fonts/icomoon.woff?ooamjw') format('woff');
   font-weight: normal;
   font-style: normal;
 }
@@ -39,7 +38,7 @@
 .icon-add-3:before {
   content: "\e904";
 }
-.icon-agenda-(2):before {
+.icon-agenda-2:before {
   content: "\e905";
 }
 .icon-agenda:before {
@@ -51,7 +50,7 @@
 .icon-alarm-1:before {
   content: "\e908";
 }
-.icon-alarm-clock-(2):before {
+.icon-alarm-clock-2:before {
   content: "\e909";
 }
 .icon-alarm-clock:before {
@@ -150,7 +149,7 @@
 .icon-bookmark-1:before {
   content: "\e929";
 }
-.icon-briefcase-(2):before {
+.icon-briefcase-2:before {
   content: "\e92a";
 }
 .icon-briefcase:before {
@@ -159,7 +158,7 @@
 .icon-broken-link:before {
   content: "\e92c";
 }
-.icon-calculator-(2):before {
+.icon-calculator-2:before {
   content: "\e92d";
 }
 .icon-calculator:before {
@@ -225,7 +224,7 @@
 .icon-close:before {
   content: "\e942";
 }
-.icon-cloud-(2):before {
+.icon-cloud-2:before {
   content: "\e943";
 }
 .icon-cloud:before {
@@ -252,7 +251,7 @@
 .icon-command:before {
   content: "\e94b";
 }
-.icon-compact-disc-(2):before {
+.icon-compact-disc-2:before {
   content: "\e94c";
 }
 .icon-compact-disc:before {
@@ -264,7 +263,7 @@
 .icon-compact-disc-2:before {
   content: "\e94f";
 }
-.icon-compass-(2):before {
+.icon-compass-2:before {
   content: "\e950";
 }
 .icon-compass:before {
@@ -582,7 +581,7 @@
 .icon-house:before {
   content: "\e9b9";
 }
-.icon-id-card-(2):before {
+.icon-id-card-2:before {
   content: "\e9ba";
 }
 .icon-id-card:before {
@@ -663,7 +662,7 @@
 .icon-list-1:before {
   content: "\e9d4";
 }
-.icon-lock-(2):before {
+.icon-lock-2:before {
   content: "\e9d5";
 }
 .icon-lock:before {
@@ -711,7 +710,7 @@
 .icon-magnet-2:before {
   content: "\e9e4";
 }
-.icon-map-(2):before {
+.icon-map-2:before {
   content: "\e9e5";
 }
 .icon-map:before {
@@ -729,7 +728,7 @@
 .icon-mathematical-operators:before {
   content: "\e9ea";
 }
-.icon-megaphone-(2):before {
+.icon-megaphone-2:before {
   content: "\e9eb";
 }
 .icon-megaphone:before {
@@ -1128,13 +1127,13 @@
 .icon-skip:before {
   content: "\ea6f";
 }
-.icon-smartphone-(2):before {
+.icon-smartphone-2:before {
   content: "\ea70";
 }
 .icon-smartphone:before {
   content: "\ea71";
 }
-.icon-smartphone-1-(2):before {
+.icon-smartphone-1-2:before {
   content: "\ea72";
 }
 .icon-smartphone-1:before {

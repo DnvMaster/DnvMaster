@@ -72,7 +72,7 @@
 	padding: 15px 7px 15px 7px;
 }
 .top-app:hover {
-	color: #32F119;
+	color: darkred;
 }
 /*- Menu navigation -*/
 .affix {
@@ -412,6 +412,73 @@ blockquote i {
 	display: block;
 	margin-left: 16px;
 	color: #000020;
+}
+/*- Content grid -*/
+.grid {
+    position: relative;
+    background: #F5F5F5;
+    overflow: hidden;
+    border: 1px solid #F5F5F5;
+    border-radius: 7px;
+    margin: 10px 0 10px 0;
+    -webkit-transition-duration: .3s;
+    transition-duration: .3s;
+}
+.grid-img {
+    overflow: hidden;
+    width: 100%;
+    height: auto;
+}
+.grid-content h4 {
+    font-size: 20px;
+    font-weight: 600;
+    line-height: 150%;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+.grid-content h4 a {
+    text-decoration: none;
+    color: #180032;
+    -webkit-transition-duration: 0.3s;
+    transition-duration: 0.3s;
+}
+.grid-content h4 a:hover {
+    color: #32F119;
+}
+.grid-info {
+    display: inline-block;
+    margin-top: 12px;
+    margin-right: 20px;
+}
+.grid-content span {
+    font-size: 14px;
+    font-weight: 500;
+    color: #32F119;
+    margin-left: 5px;
+}
+.grid-content p {
+    font-size: 15px;
+    color: #072B47;
+    line-height: 160%;
+    margin-top: 12px;
+}
+.grid-button {
+    margin-top: 20px;
+}
+.grid-button a {
+    font-size: 15px;
+    font-weight: 700;
+    text-decoration: none;
+    color: #000020;
+}
+.grid-button a:after {
+    content: "\f105";
+    font-family: FontAwesome;
+    font-size: 15px;
+    padding-left: 5px;
+}
+.grid-button a:hover {
+    color: #32F119;
 }
 /*- Footer -*/
 .footer {

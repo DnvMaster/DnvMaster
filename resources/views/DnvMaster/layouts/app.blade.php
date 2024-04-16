@@ -9,6 +9,7 @@
     <meta name="description" content="{{ (isset($description)) ? $description : 'Если Вам нужен современный, высококачественный и функциональный веб-сайт, заходите к нам' }}">
     <link rel="stylesheet" href="{{ asset('DnvMaster/css/bootstrap.min.css') }}">
     <link rel="stylesheet" href="{{ asset('DnvMaster/css/font-awesome.css') }}">
+    <link rel="stylesheet" href="{{ asset('DnvMaster/css/icon-moon.css') }}">
     <link rel="stylesheet" href="{{ asset('DnvMaster/css/animate.css') }}">
     <link rel="stylesheet" href="{{ asset('DnvMaster/css/style.css') }}">
     <link rel="stylesheet" href="{{ asset('DnvMaster/css/default.css') }}">
@@ -21,6 +22,11 @@
     </div>
     @yield('top')
     @yield('navigation')
+    <div class="container" style="margin-top: 90px; margin-bottom: 90px;">
+        <div class="row">
+            @yield('content')
+        </div>
+    </div>
     @yield('footer')
 
     <a href="#" class="scroll-to-top"><i class="fa fa-long-arrow-up" aria-hidden="true"></i></a>

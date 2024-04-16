@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Arr;
 
 class IndexController extends DnvMasterController
 {
@@ -21,6 +22,9 @@ class IndexController extends DnvMasterController
         $this->title = 'DnvMaster - Ваш источник знаний в Web-разработке';
         $this->keywords = 'HTML, CSS, JavaScript, PHP, Laravel, Node.js, Angular, React, Vue.js, Bootstrap, MySQL, Git, Back-end, Front-end';
         $this->description = 'Если Вы хотите иметь современный, высококачественный и функциональный веб-сайт, заходите к нам. Мы с удовольствием расскажем Вам, как воплотить ваши идеи в реальность и обеспечить успех в онлайн-мире.';
+
+        $content = view('DnvMaster.content')->render();
+        $this->vars = Arr::add($this->vars,'content',$content);
 
         return $this->DnvMasterOutput();
 
