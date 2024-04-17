@@ -10,7 +10,9 @@
     <link rel="stylesheet" href="{{ asset('DnvMaster/css/bootstrap.min.css') }}">
     <link rel="stylesheet" href="{{ asset('DnvMaster/css/font-awesome.css') }}">
     <link rel="stylesheet" href="{{ asset('DnvMaster/css/icon-moon.css') }}">
+    <link rel="stylesheet" href="{{ asset('DnvMaster/css/pogo-slider.min.css') }}">
     <link rel="stylesheet" href="{{ asset('DnvMaster/css/animate.css') }}">
+    <link rel="stylesheet" href="{{ asset('DnvMaster/css/owl.carousel.css') }}">
     <link rel="stylesheet" href="{{ asset('DnvMaster/css/style.css') }}">
     <link rel="stylesheet" href="{{ asset('DnvMaster/css/default.css') }}">
 </head>
@@ -22,6 +24,7 @@
     </div>
     @yield('top')
     @yield('navigation')
+    @yield('sliders')
     <div class="container" style="margin-top: 90px; margin-bottom: 90px;">
         <div class="row">
             @yield('content')
@@ -34,6 +37,16 @@
     <script src="{{ asset('DnvMaster/js/popper.min.js') }}"></script>
     <script src="{{ asset('DnvMaster/js/bootstrap.min.js') }}"></script>
     <script src="{{ asset('DnvMaster/js/jquery.min.js') }}"></script>
-    <script src="{{ asset('DnvMaster/js/my_file.js') }}"></script>
+    <script src="{{ asset('DnvMaster/js/jquery.pogo-slider.min.js') }}"></script>
+    <script src="{{ asset('DnvMaster/js/pogo-main.js') }}"></script>
+    <script src="{{ asset('DnvMaster/js/owl.carousel.js') }}"></script>
+    <script src="{{ asset('DnvMaster/js/wow.min.js') }}"></script>
+    <script src="{{ asset('DnvMaster/js/jquery.counter-up.min.js') }}"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/waypoints/2.0.3/waypoints.min.js"></script>
+    <script src="{{ asset('DnvMaster/js/isotope.min.js') }}"></script>
+    <script src="{{ asset('DnvMaster/js/tabs.min.js') }}"></script>
+    <script src="{{ asset('DnvMaster/js/modernizr.js') }}"></script>
+    <script src="{{ asset('DnvMaster/js/set-file.js') }}"></script>
+
 </body>
 </html>

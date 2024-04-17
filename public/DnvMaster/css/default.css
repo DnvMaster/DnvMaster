@@ -42,6 +42,24 @@ img {
 .right-holder {
     text-align: right;
 }
+/*- buttons -*/
+.button-primary {
+    display: inline-block;
+    font-size: 15px;
+    font-weight: 500;
+    color: #FFFFFF;
+    padding: 10px 25px 10px 25px;
+    border: 2px solid #32F119;
+    border-radius: 5px;
+    background: #32F119;
+    text-align: center;
+    -webkit-transition-duration: .3s;
+    transition-duration: .3s;
+}
+.button-lg {
+    font-size: 17px;
+    font-weight: 400;
+}
 /* Clearfix */
 .clearfix:after {
     visibility: hidden;

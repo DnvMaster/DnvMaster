@@ -23,6 +23,9 @@ class IndexController extends DnvMasterController
         $this->keywords = 'HTML, CSS, JavaScript, PHP, Laravel, Node.js, Angular, React, Vue.js, Bootstrap, MySQL, Git, Back-end, Front-end';
         $this->description = 'Если Вы хотите иметь современный, высококачественный и функциональный веб-сайт, заходите к нам. Мы с удовольствием расскажем Вам, как воплотить ваши идеи в реальность и обеспечить успех в онлайн-мире.';
 
+        $sliders  = view('DnvMaster.sliders')->render();
+        $this->vars = Arr::add($this->vars,'sliders',$sliders);
+
         $content = view('DnvMaster.content')->render();
         $this->vars = Arr::add($this->vars,'content',$content);
 
