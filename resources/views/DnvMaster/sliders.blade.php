@@ -1,7 +1,7 @@
 <div class="pogoSlider" id="js-main-slider">
     @if(count($sliders) > 0)
         @foreach($sliders as $slider)
-            <div class="pogoSlider-slide" data-transition="fade" data-duration="1000" style="background-image: url('/public/DnvMaster/images/sliders/{{ $slider->image }}');">
+            <div class="pogoSlider-slide" data-transition="fade" data-duration="1000" style="background-image: url('/public/DnvMaster/images/{{ $slider->image }}');">
                 <div class="container">
                     <div class="slider-content">
                         <div class="row">
