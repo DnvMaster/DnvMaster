@@ -2,12 +2,14 @@
 
 namespace App\Repositories;
 use Config;
+use Illuminate\Support\Facades\DB;
 
 abstract class Repository
 {
-    public function getSet($select = '*')
+    protected $modal = false;
+    public function getSlider()
     {
-        $builder = $this->model->select($select);
+        $builder = DB::table('sliders')->select('*')->get();
         return $builder;
     }
 }

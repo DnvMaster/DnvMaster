@@ -10,6 +10,7 @@ class DnvMasterController extends Controller
     protected $title;
     protected $keywords;
     protected $description;
+    protected $slidersRepository;
     protected $template;
     protected $vars = array();
     protected $leftBar = false;

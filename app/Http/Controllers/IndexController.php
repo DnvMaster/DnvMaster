@@ -2,15 +2,17 @@
 
 namespace App\Http\Controllers;
 
+use App\Repositories\SlidersRepository;
 use Illuminate\Http\Request;
 use Illuminate\Support\Arr;
 
 class IndexController extends DnvMasterController
 {
-    public function __construct()
+    public function __construct(SlidersRepository $slidersRepository)
     {
         parent::__construct();
         $this->template = 'DnvMaster.index';
+        $this->slidersRepository = $slidersRepository;
     }
     /**
      * Display a listing of the resource.
@@ -23,7 +25,8 @@ class IndexController extends DnvMasterController
         $this->keywords = 'HTML, CSS, JavaScript, PHP, Laravel, Node.js, Angular, React, Vue.js, Bootstrap, MySQL, Git, Back-end, Front-end';
         $this->description = 'Если Вы хотите иметь современный, высококачественный и функциональный веб-сайт, заходите к нам. Мы с удовольствием расскажем Вам, как воплотить ваши идеи в реальность и обеспечить успех в онлайн-мире.';
 
-        $sliders  = view('DnvMaster.sliders')->render();
+        $getsSliders = $this->getSliders();
+        $sliders  = view('DnvMaster.sliders')->with('sliders',$getsSliders)->render();
         $this->vars = Arr::add($this->vars,'sliders',$sliders);
 
         $content = view('DnvMaster.content')->render();
@@ -31,6 +34,12 @@ class IndexController extends DnvMasterController
 
         return $this->DnvMasterOutput();
 
+    }
+
+    public function getSliders()
+    {
+        $sliders = $this->slidersRepository->getSlider();
+        return $sliders;
     }
 
     /**
