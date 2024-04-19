@@ -46,13 +46,13 @@ img {
 .button-primary {
     display: inline-block;
     font-size: 15px;
-    font-weight: 500;
-    color: #FFFFFF;
+    color: #000020;
     padding: 10px 25px 10px 25px;
     border: 2px solid #32F119;
     border-radius: 5px;
     background: #32F119;
     text-align: center;
+    text-decoration: none;
     -webkit-transition-duration: .3s;
     transition-duration: .3s;
 }
