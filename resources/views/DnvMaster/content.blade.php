@@ -5,7 +5,7 @@
             @if($key == 0)
                 <div class="blog-post">
                     <img src="{{ asset('DnvMaster/images/portfolio/001-750x422.png')}}" alt="{{ $portfolio->title }}" title="{{ $portfolio->title }}">
-                    <h4 class="mt-3"><a href="{--{ route('portfolios.show') }--}">{{ $portfolio->title }}</a></h4>
+                    <h4 class="mt-3"><a href="{{ route('portfolios.show',['alias'=>$portfolio->alias]) }}">{{ $portfolio->title }}</a></h4>
                     <div class="blog-post-info">
                         <i class="icon-user">&nbsp;<span>{{ $portfolio->filter->title }}</span></i>
                     </div>
@@ -16,11 +16,25 @@
                         <i class="icon-attachment">&nbsp;<span>{{ __('Категория') }}</span></i>
                     </div>
                     <p class="mt-25">{{ $portfolio->text }}</p>
+                    <a href="{{ route('portfolios.show',['alias'=>$portfolio->alias]) }}">{{ trans('ru.read_mo') }}</a>
                 </div>
                 @continue
             @endif
         @endforeach
     </div>
+@else
+    <div class="col-md-8 col-sm-8 col-xs-12">
+        <div class="blog-post">
+            <img src="{{ asset('DnvMaster/images/404.png')}}" alt="{{ trans('ru.404') }}" title="{{ trans('ru.404') }} }}">
+            <h4 class="mt-3"><a href="{{ url('/') }}">{{ trans('ru.404') }}</a></h4>
+        </div>
+    </div>
+@endif
+
+
+
+
+
     <div class="col-md-4 col-sm-4 col-xs-12">
         <div class="blog-post-left">
             <h4>{{ __('Последний пост') }}</h4>
@@ -189,5 +203,4 @@
         </div>
     </div>
     <!-- End Services -->
-@endif
 
