@@ -6,10 +6,14 @@ use Illuminate\Support\Facades\DB;
 
 abstract class Repository
 {
-    protected $modal = false;
-    public function getSlider()
+    protected $model = false;
+    public function get($select = '*',$take = false)
     {
-        $builder = DB::table('sliders')->select('*')->get();
-        return $builder;
+        $builder = $this->model->select($select);
+        if($take)
+        {
+            $builder->take($take);
+        }
+        return $builder->get();
     }
 }
