@@ -27,7 +27,12 @@
     @yield('sliders')
     <div class="container" style="margin-top: 90px; margin-bottom: 90px;">
         <div class="row">
-            @yield('content')
+            <div class="col-md-8 col-sm-8 col-xs-12">
+                @yield('content')
+            </div>
+            <div class="col-md-4 col-sm-4 col-xs-12">
+                @yield('bar')
+            </div>
         </div>
     </div>
     @yield('footer')

@@ -31,6 +31,9 @@ class IndexController extends DnvMasterController
         $content = view('DnvMaster.content')->with('portfolios',$portfolios)->render();
         $this->vars = Arr::add($this->vars,'content',$content);
 
+        $articles = false;
+        $this->contentRightBar = view('DnvMaster.indexBar')->with('articles',$articles)->render();
+
         return $this->DnvMasterOutput();
 
     }
