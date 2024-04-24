@@ -2,7 +2,7 @@
     @foreach($portfolios as $key => $portfolio)
         @if($key == 0)
             <div class="blog-post">
-                <img src="{{ asset('DnvMaster/images/portfolio/001-750x422.png')}}" alt="{{ $portfolio->title }}" title="{{ $portfolio->title }}">
+                <img src="{{ asset('DnvMaster') }}/images/portfolio/{{ $portfolio->img->path }}" alt="{{ $portfolio->title }}" title="{{ $portfolio->title }}">
                 <h4 class="mt-3"><a href="{{ route('portfolios.show',['alias'=>$portfolio->alias]) }}">{{ $portfolio->title }}</a></h4>
                 <div class="blog-post-info">
                     <i class="icon-user">&nbsp;<span>{{ $portfolio->filter->title }}</span></i>

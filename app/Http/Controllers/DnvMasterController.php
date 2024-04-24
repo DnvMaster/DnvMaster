@@ -20,7 +20,7 @@ class DnvMasterController extends Controller
     protected $vars = array();
     protected $contentLeftBar = false;
     protected $contentRightBar = false;
-    protected $bar;
+    protected $bar = 'no';
     public function __construct(MenusRepository $menusRepository)
     {
         $this->menusRepository = $menusRepository;
@@ -38,14 +38,16 @@ class DnvMasterController extends Controller
         $navigation = view('DnvMaster.navigation')->with('menu',$menu)->render();
         $this->vars = Arr::add($this->vars, 'navigation',$navigation);
 
-        $footer = view('DnvMaster.footer')->render();
-        $this->vars = Arr::add($this->vars, 'footer',$footer);
-
         if ($this->contentRightBar)
         {
             $rightBar = view('DnvMaster.rightBar')->with('content_rightBar',$this->contentRightBar)->render();
             $this->vars = Arr::add($this->vars,'rightBar',$rightBar);
         }
+        $this->vars = Arr::add($this->vars,'bar',$this->bar);
+
+        $footer = view('DnvMaster.footer')->render();
+        $this->vars = Arr::add($this->vars, 'footer',$footer);
+
         return view($this->template)->with($this->vars);
     }
     protected function getMenu()

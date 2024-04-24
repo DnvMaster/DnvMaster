@@ -2,10 +2,22 @@
 
 namespace App\Http\Controllers;
 
+use App\Repositories\ArticlesRepository;
+use App\Repositories\MenusRepository;
+use App\Repositories\PortfoliosRepository;
 use Illuminate\Http\Request;
 
-class ArticlesController extends Controller
+class ArticlesController extends DnvMasterController
 {
+    public function __construct(PortfoliosRepository $portfoliosRepository, ArticlesRepository $articlesRepository)
+    {
+        parent::__construct(new \App\Repositories\MenusRepository(new \App\Models\Menu()));
+        $this->portfoliosRepository = $portfoliosRepository;
+        $this->articlesRepository = $articlesRepository;
+        $this->bar = 'right';
+        $this->template = 'DnvMaster.articles';
+    }
+
     /**
      * Display a listing of the resource.
      *
@@ -13,7 +25,20 @@ class ArticlesController extends Controller
      */
     public function index()
     {
-        //
+        $articles = $this->getArticles();
+        $content = view('DnvMaster.articles_content')->with('articles',$articles)->render();
+        $this->vars = \Arr::add($this->vars,'content',$content);
+
+        return $this->DnvMasterOutput();
+    }
+    public function getArticles($alias = false)
+    {
+        $articles = $this->articlesRepository->get(['title','alias','created_at','img','desc'],false,true);
+        if ($articles)
+        {
+           // $articles->load('user','category','comments');
+        }
+        return $articles;
     }
 
     /**
