@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Repositories\ArticlesRepository;
 use App\Repositories\PortfoliosRepository;
 use App\Repositories\SlidersRepository;
 use Illuminate\Http\Request;
@@ -10,12 +11,13 @@ use Config;
 
 class IndexController extends DnvMasterController
 {
-    public function __construct(SlidersRepository $slidersRepository, PortfoliosRepository $portfoliosRepository)
+    public function __construct(SlidersRepository $slidersRepository, PortfoliosRepository $portfoliosRepository, ArticlesRepository $articlesRepository)
     {
         parent::__construct(new \App\Repositories\MenusRepository(new \App\Models\Menu()));
         $this->template = 'DnvMaster.index';
         $this->slidersRepository = $slidersRepository;
         $this->portfoliosRepository = $portfoliosRepository;
+        $this->articlesRepository = $articlesRepository;
     }
     public function index()
     {
@@ -31,7 +33,7 @@ class IndexController extends DnvMasterController
         $content = view('DnvMaster.content')->with('portfolios',$portfolios)->render();
         $this->vars = Arr::add($this->vars,'content',$content);
 
-        $articles = false;
+        $articles = $this->getArticles();
         $this->contentRightBar = view('DnvMaster.indexBar')->with('articles',$articles)->render();
 
         return $this->DnvMasterOutput();
@@ -57,7 +59,11 @@ class IndexController extends DnvMasterController
         $portfolio = $this->portfoliosRepository->get('*',Config::get('settings.portfolio_count'));
         return $portfolio;
     }
-
+    public function getArticles()
+    {
+        $article = $this->articlesRepository->get(['title','created_at','img','alias'],Config::get('settings.article_count'));
+        return $article;
+    }
     /**
      *
      *
