@@ -8,7 +8,7 @@
                             <div class="col-md-8 col-sm-12 col-xs-12">
                                 <h2 class="pogoSlider-slide-element" data-in="slideDown" data-out="slideUp" data-duration="750" data-delay="500">{{ $slider->title }}</h2>
                                 <p class="pogoSlider-slide-element">{{ $slider->text }}</p>
-                                <a href="#" class="button-lg button-primary mt-30 pogoSlider-slide-element" data-in="slideRight" data-out="slideDown" data-duration="1150" data-delay="500">{{ trans('ru.read_mo') }}</a>
+                                <a href="{{ url('/articles')}}" class="button-lg button-primary mt-30 pogoSlider-slide-element" data-in="slideRight" data-out="slideDown" data-duration="1150" data-delay="500">{{ trans('ru.read_mo') }}</a>
                             </div>
                         </div>
                     </div>
