@@ -498,8 +498,16 @@
 .blog-post-info span {
     font-size: 16px;
     font-weight: 500;
-    color: #000020;
+    color: #00000F;
     margin-left: 5px;
+}
+.blog-post-info span a {
+    text-decoration: none;
+    color: #000077;
+}
+.blog-post-info span a:hover {
+    cursor: pointer;
+    color: darkred;
 }
 .blog-post p {
     font-size: 16px;

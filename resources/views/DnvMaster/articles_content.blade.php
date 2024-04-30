@@ -8,10 +8,10 @@
                 <i class="icon-users"></i><span>{{ $article->user->name }}</span>
             </div>
             <div class="blog-post-info">
-                <i class="icon-calendar-6"></i><span>{{ $article->created_at->format('d M Y') }}</span>
+                <i class="icon-attach"></i><span><a href="{{ route('articles.category',$article->category->alias) }}">{{ $article->category->title }}</a></span>
             </div>
             <div class="blog-post-info">
-                <i class="icon-attachment"></i><span><a href="{{ route('articles.cat',$article->category->alias) }}">{{ $article->category->title }}</a></span>
+                <i class="icon-compose"></i><span><a href="{{ route('articles.show',['alias'=>$article->alias]) }}#respond">{{ count($article->comments) ? count($article->comments) : '0' }}&nbsp;{{ Lang::choice('ru.comments', count($article->comments)) }}</a></span>
             </div>
 
             <p class="mt-25">{{ $article->short_text }}</p>

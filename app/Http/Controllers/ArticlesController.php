@@ -33,7 +33,7 @@ class ArticlesController extends DnvMasterController
     }
     public function getArticles($alias = false)
     {
-        $articles = $this->articlesRepository->get(['title','alias','created_at','img','short_text','bold_text','icon','text','desc','user_id','category_id'],false,true);
+        $articles = $this->articlesRepository->get(['id','title','alias','created_at','img','short_text','bold_text','icon','text','desc','user_id','category_id'],false,true);
         if ($articles)
         {
            // $articles->load('user','category','comments');
