@@ -16,6 +16,7 @@ class DnvMasterController extends Controller
     protected $slidersRepository;
     protected $articlesRepository;
     protected $portfoliosRepository;
+    protected $commentsRepository;
     protected $template;
     protected $vars = array();
     protected $contentLeftBar = false;

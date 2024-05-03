@@ -3,17 +3,19 @@
 namespace App\Http\Controllers;
 
 use App\Repositories\ArticlesRepository;
+use App\Repositories\CommentsRepository;
 use App\Repositories\MenusRepository;
 use App\Repositories\PortfoliosRepository;
 use Illuminate\Http\Request;
 
 class ArticlesController extends DnvMasterController
 {
-    public function __construct(PortfoliosRepository $portfoliosRepository, ArticlesRepository $articlesRepository)
+    public function __construct(PortfoliosRepository $portfoliosRepository, ArticlesRepository $articlesRepository,CommentsRepository $commentsRepository)
     {
         parent::__construct(new \App\Repositories\MenusRepository(new \App\Models\Menu()));
         $this->portfoliosRepository = $portfoliosRepository;
         $this->articlesRepository = $articlesRepository;
+        $this->commentsRepository = $commentsRepository;
         $this->bar = 'right';
         $this->template = 'DnvMaster.articles';
     }
@@ -29,7 +31,23 @@ class ArticlesController extends DnvMasterController
         $content = view('DnvMaster.articles_content')->with('articles',$articles)->render();
         $this->vars = \Arr::add($this->vars,'content',$content);
 
+        $comments = $this->getComments(config('settings.comments'));
+        $portfolios = $this->getPortfolios(config('settings.portfolios'));
+
+        $this->contentRightBar = view('DnvMaster.articlesBar')->with(['comments'=>$comments,'portfolios'=>$portfolios])->render();
+
         return $this->DnvMasterOutput();
+    }
+    public function getComments($take)
+    {
+        $comments = $this->commentsRepository->get(['text','name','email','site','article_id','user_id'],$take);
+        return $comments;
+    }
+    public function getPortfolios($take)
+    {
+        $portfolios = $this->portfoliosRepository->get(['title','text','alias','customer','img','filter_alias','created_at'],$take);
+        return $portfolios;
+
     }
     public function getArticles($alias = false)
     {
