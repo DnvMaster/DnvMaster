@@ -33,9 +33,10 @@
             <a href="{{ route('articles.show',['alias'=>$article->alias]) }}" class="button-lg button-primary mt-5 mb-15">{!! Lang::get('ru.read_mo') !!}</a>
             <div class="blog-post-share"></div>
         @endforeach
-        <nav style="margin-left: 170px;" aria-label="Page navigation example">
+
+        <nav aria-label="Page navigation example">
             @if($articles->lastPage() > 1)
-                <ul class="pagination">
+                <ul class="pagination justify-content-center">
                     <li class="page-item">
                         @if($articles->currentPage() !== 1)
                             <a class="page-link" href="{{ $articles->url($articles->currentPage() - 1) }}" aria-label="Previous"><span aria-hidden="true">{!! Lang::get('pagination.previous') !!}</span></a>
@@ -46,7 +47,7 @@
                             @if($articles->currentPage() == $i)
                                 <a class="page-link">{{ $i }}</a>
                             @else
-                                <a class="page-link" href="{{ $articles->url($i) }}">{{$i}}</a>
+                                <a class="page-link " href="{{ $articles->url($i) }}">{{$i}}</a>
                         </li>
                         @endif
                     @endfor

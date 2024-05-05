@@ -1,6 +1,6 @@
 <div class="blog-post-left">
     @if(!$portfolios->isEmpty())
-        <h4>{{ Lang::get('ru.articles_res') }}</h4>
+        <h4>{{ Lang::get('ru.articles_last') }}</h4>
         @foreach($portfolios as $portfolio)
             <div class="recent-posts">
                 <div class="row">
@@ -15,4 +15,19 @@
             </div>
         @endforeach
     @endif
+</div>
+<div class="blog-post-left categories">
+    @if(!$comments->isEmpty())
+
+    @endif
+    <h4>{{ Lang::get('ru.comments_last') }}</h4>
+        @foreach($comments as $comment)
+            <div class="footer-post-img">
+                @set($hash,($comment->email) ? md5($comment->email) : $comment->user->email)
+                <img src="https://www.gravatar.com/avatar/{{$hash}}?d=mm&s=55">
+            </div>
+            <div class="footer-post-content">
+                <p>{{ $comment->text }} <a href="{{ route('articles.show',['alias'=>$comment->article->alias]) }}">{{ $comment->article->user->name }}</a></p>
+            </div>
+        @endforeach
 </div>

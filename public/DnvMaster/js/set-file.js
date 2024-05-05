@@ -35,6 +35,7 @@ $(document). ready(function (){
             }
         }
     });
+
     /*--- Partners carousel ---*/
     $('#our-partners').owlCarousel({
         loop: true,

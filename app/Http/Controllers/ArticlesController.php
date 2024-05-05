@@ -2,11 +2,13 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Category;
 use App\Repositories\ArticlesRepository;
 use App\Repositories\CommentsRepository;
 use App\Repositories\MenusRepository;
 use App\Repositories\PortfoliosRepository;
 use Illuminate\Http\Request;
+use Illuminate\Support\Arr;
 
 class ArticlesController extends DnvMasterController
 {
@@ -25,11 +27,11 @@ class ArticlesController extends DnvMasterController
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index($category_alias = false)
     {
-        $articles = $this->getArticles();
+        $articles = $this->getArticles($category_alias);
         $content = view('DnvMaster.articles_content')->with('articles',$articles)->render();
-        $this->vars = \Arr::add($this->vars,'content',$content);
+        $this->vars = Arr::add($this->vars,'content',$content);
 
         $comments = $this->getComments(config('settings.comments'));
         $portfolios = $this->getPortfolios(config('settings.portfolios'));
@@ -41,6 +43,10 @@ class ArticlesController extends DnvMasterController
     public function getComments($take)
     {
         $comments = $this->commentsRepository->get(['text','name','email','site','article_id','user_id'],$take);
+        if ($comments)
+        {
+            $comments->load('article','user');
+        }
         return $comments;
     }
     public function getPortfolios($take)
@@ -51,10 +57,14 @@ class ArticlesController extends DnvMasterController
     }
     public function getArticles($alias = false)
     {
-        $articles = $this->articlesRepository->get(['id','title','alias','created_at','img','short_text','bold_text','icon','text','desc','user_id','category_id'],false,true);
-        if ($articles)
-        {
-           // $articles->load('user','category','comments');
+        $where = false;
+        if ($alias) {
+            $id = Category::select('id')->where('alias',$alias)->first()->id;
+            $where = ['category_id',$id];
+        }
+        $articles = $this->articlesRepository->get(['id', 'title', 'alias', 'created_at', 'img', 'short_text', 'bold_text', 'icon', 'text', 'desc', 'user_id', 'category_id'], false, true,$where);
+        if ($articles) {
+            $articles->load('user', 'category', 'comments');
         }
         return $articles;
     }
@@ -86,9 +96,19 @@ class ArticlesController extends DnvMasterController
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show($alias = false)
     {
-        //
+        $article = $this->articlesRepository->one($alias,['comments'=>true]);
+        if ($article)
+        {
+            $article->img = json_decode($article->img);
+        }
+        $content = view('DnvMaster.article_content')->with('article',$article)->render();
+        $this->vars = Arr::add($this->vars,'content',$content);
+        $comments = $this->getComments(config('settings.comments'));
+        $portfolios = $this->getPortfolios(config('settings.portfolios'));
+        $this->contentRightBar = view('DnvMaster.articlesBar')->with(['comments'=>$comments,'portfolios'=>$portfolios])->render();
+        return $this->DnvMasterOutput();
     }
 
     /**
