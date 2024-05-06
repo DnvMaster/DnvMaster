@@ -33,7 +33,7 @@
                             <img src="{{ asset('DnvMaster/images/posts/002-360x240.png') }}" alt="Laravel 9">
                         </div>
                         <div class="footer-post-content">
-                            <h6><a href="https://laravel.com">{{ trans('ru.fr_laravel') }}</a></h6>
+                            <h6><a href="https://laravel.com" target="_blank">{{ trans('ru.fr_laravel') }}</a></h6>
                         </div>
                     </div>
 
@@ -42,7 +42,7 @@
                             <img src="{{ asset('DnvMaster/images/posts/bootstrap.png') }}" alt="Bootstrap 5.3">
                         </div>
                         <div class="footer-post-content">
-                            <h6><a href="https://getbootstrap.com">{{ trans('ru.tw_bootstrap') }}</a></h6>
+                            <h6><a href="https://getbootstrap.com" target="_blank">{{ trans('ru.tw_bootstrap') }}</a></h6>
                         </div>
                     </div>
 
@@ -51,7 +51,7 @@
                             <img src="{{ asset('DnvMaster/images/posts/php.png') }}" alt="PHP 8.1">
                         </div>
                         <div class="footer-post-content">
-                            <h6><a href="https://getbootstrap.com">{{ trans('ru.php-8') }}</a></h6>
+                            <h6><a href="https://getbootstrap.com" target="_blank">{{ trans('ru.php-8') }}</a></h6>
                         </div>
                     </div>
 
@@ -65,8 +65,8 @@
                     <ul class="footer-links">
                         <li><a href="#">{{ __('Главная') }}</a></li>
                         <li><a href="#">{{ __('О нас') }}</a></li>
-                        <li><a href="#">{{ __('Ботстрап') }}</a></li>
-                        <li><a href="#">{{ __('Ларавел') }}</a></li>
+                        <li><a href="https://getbootstrap.com" target="_blank">{{ __('Ботстрап') }}</a></li>
+                        <li><a href="https://laravel.com" target="_blank">{{ __('Ларавел') }}</a></li>
                         <li><a href="#">{{ __('РНР') }}</a></li>
                         <li><a href="#">{{ __('Контакты') }}</a></li>
                     </ul>

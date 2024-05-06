@@ -385,7 +385,7 @@
 .page-title ul li a:hover {
     color: #32F119;
 }
-/*- Articles section-*/
+/*- Articles section -*/
 .section-block-grey {
     padding: 60px 0 60px 0;
     background-color: #FCFCFC;
@@ -409,6 +409,84 @@
     font-size: 38px;
     color: #32F119;
 }
+/*- Comments -*/
+.comments-title span {}
+.comment-container {
+    padding: 5px;
+    border-bottom: 1px solid #000031;
+}
+.comment-author {
+    float: left;
+    margin: 25px 10px 0 15px;
+    width: 85px;
+}
+.commentform img .avatar {}
+#comments .fn {
+    font-style: normal;
+    text-align: center;
+    font-size: 90%;
+    margin: 10px 0 0 0;
+    display: block;
+}
+#comments .comment-author img {
+    padding: 3px;
+    border-radius: 45px;
+}
+.comment-meta .reply {
+    text-align: right;
+}
+.comment-meta {
+    margin: 1px 0 1px 120px;
+    padding: 20px 20px 10px 20px;
+    min-height: 145px;
+}
+.comment-metaTextarea {}
+.contentMetaData {}
+
+.intro {
+    width: 100%;
+    height: 25px;
+    margin-bottom: 20px;
+}
+.commentNumber {
+    float: right;
+    font-size: 150%;
+    color: #000077;
+}
+.comment-body p {
+    margin: 0 10px 0 10px;
+}
+.commentDate {
+    margin: 0 0 10px 0;
+}
+.commentDate a {
+    text-decoration: none;
+    margin: 0 12px 0 12px;
+}
+ol.commentlist {
+    margin-left: 0 !important;
+}
+ol.commentlist ol {
+    margin-left: 40px !important;
+}
+ol.commentlist, li .comment {
+    clear: both;
+    margin: 0 0 2em 0;
+    padding: 0;
+    list-style-type: none;
+}
+.bypostauthor .comment-container {
+    background-color: #FBFBFB;
+}
+.comment-reply-link {
+    text-decoration: none;
+    color: #32F119;
+}
+.reply a:hover {
+    color: darkred;
+}
+/*- coment-form -*/
+
 /*- Parallax -*/
 .parallax {
     background-size: cover;
